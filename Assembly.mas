@@ -1,0 +1,100 @@
+     Assembly listing for: CiaraRoutly_program2.mas
+                Assembled: Mon Oct 17 21:24:41 EDT 2016
+
+         |                          // Ciara Routly
+         |                          
+000 5000 |         INPUT             
+001 6000 |         OUTPUT            
+002 2039 |         STORE a           
+003 5000 |         INPUT             
+004 6000 |         OUTPUT            
+005 203A |         STORE b           
+006 5000 |         INPUT             
+007 6000 |         OUTPUT            
+008 203B |         STORE c           
+009 5000 |         INPUT             
+00A 6000 |         OUTPUT            
+00B 203C |         STORE d           
+         |                          
+00C 1039 |         LOAD a            
+00D 2035 |         STORE temp1       
+00E 103A |         LOAD b            
+00F 2036 |         STORE temp2       
+010 0028 |         JNS Mult          
+011 1037 |         LOAD x            
+012 2033 |         STORE fMult       
+         |                          
+013 1032 |         LOAD zero         
+014 2037 |         STORE x           
+015 103B |         LOAD c            
+016 2035 |         STORE temp1       
+017 103C |         LOAD d            
+018 2036 |         STORE temp2       
+019 0028 |         JNS Mult          
+01A 1037 |         LOAD x            
+01B 2034 |         STORE sMult       
+         |                          
+01C 1032 |         LOAD zero         
+01D 2037 |         STORE x           
+01E 1033 |         LOAD fMult        
+01F 2035 |         STORE temp1       
+020 1034 |         LOAD sMult        
+021 2036 |         STORE temp2       
+022 0028 |         JNS Mult          
+023 1037 |         LOAD x            
+024 203D |         STORE z           
+025 103D |         LOAD z            
+026 6000 |         OUTPUT            
+027 7000 |         HALT              
+         |                          
+028 0000 |  Mult   HEX 0             
+029 1037 |  LOOP   LOAD x            
+02A 3035 |         ADD temp1         
+02B 2037 |         STORE x          // store final (n*n)
+02C 1036 |         LOAD temp2        
+02D 4038 |         SUBT y            
+02E 2036 |         STORE temp2       
+02F 8400 |         SKIPCOND 400      
+030 9029 |         JUMP LOOP         
+031 C028 |         JUMPI Mult        
+         |                          
+032 0000 |  zero   DEC 0             
+         |                          
+033 0000 |  fMult  DEC 0             
+034 0000 |  sMult  DEC 0             
+035 0000 |  temp1  DEC 0             
+036 0000 |  temp2  DEC 0             
+         |                          
+037 0000 |  x      DEC 0             
+038 0001 |  y      DEC 1             
+         |                          
+039 0000 |  a      DEC 0             
+03A 0000 |  b      DEC 0             
+03B 0000 |  c      DEC 0             
+03C 0000 |  d      DEC 0             
+03D 0000 |  z      DEC 0             
+
+Assembly successful.
+
+         SYMBOL TABLE
+         --------------------------------------------------
+          Symbol | Defined | References 
+         --------+---------+-------------------------------
+          LOOP   |   029   | 030
+          Mult   |   028   | 010, 019, 022, 031
+          a      |   039   | 002, 00C
+          b      |   03A   | 005, 00E
+          c      |   03B   | 008, 015
+          d      |   03C   | 00B, 017
+          fMult  |   033   | 012, 01E
+          sMult  |   034   | 01B, 020
+          temp1  |   035   | 00D, 016, 01F, 02A
+          temp2  |   036   | 00F, 018, 021, 02C, 02E
+          x      |   037   | 011, 014, 01A, 01D, 023, 029, 
+                 |         | 02B
+          y      |   038   | 02D
+          z      |   03D   | 024, 025
+          zero   |   032   | 013, 01C
+         --------------------------------------------------
+
+
